@@ -40,7 +40,7 @@ public class DemoApplication {
 			log.info("");
 
 			// fetch customers by last name
-			log.info("Pets found with findByUserame('Bobby'):");
+			log.info("Pets found with findByUsername('Bobby'):");
 			log.info("--------------------------------------------");
 			for (Pet pet : petRepository.findByName("Bobby")) {
 				log.info(pet.toString());

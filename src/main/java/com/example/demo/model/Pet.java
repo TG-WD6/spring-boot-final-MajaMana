@@ -6,10 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
@@ -18,13 +15,22 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
-@ToString
 public class Pet {
 
     @Id
     @GeneratedValue
     private Long pet_id;
     private String name;
+
+
 //    private String type;
-//    private Customer owner;
+
+    @ManyToOne
+    @JoinColumn(name="owner_id", nullable=false)
+    private Customer owner;
+
+    @Override
+    public String toString() {
+        return getName() + owner.getName();
+    }
 }

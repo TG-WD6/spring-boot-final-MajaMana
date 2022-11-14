@@ -6,10 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "customers")
@@ -17,14 +15,20 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
-@ToString
 public class Customer {
 
     @Id
     @GeneratedValue
-    private int customer_id;
+    private long customer_id;
     private String name;
 //    private String username;
 //    private String password;
 
+    @OneToMany(mappedBy="owner", fetch = FetchType.EAGER)
+    private List<Pet> petList;
+
+//    @Override
+//    public String toString() {
+//        return getName();
+//    }
 }
