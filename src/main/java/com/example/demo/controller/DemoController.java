@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.PetDTO;
 import com.example.demo.model.Pet;
+import com.example.demo.service.CustomerService;
 import com.example.demo.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,9 @@ public class DemoController {
 
     @Autowired
     private PetService petService;
+
+    @Autowired
+    private CustomerService customerService;
 
     @GetMapping("/")
     public String index() {
