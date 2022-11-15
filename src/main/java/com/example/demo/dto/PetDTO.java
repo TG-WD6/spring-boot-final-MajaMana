@@ -12,6 +12,6 @@ import lombok.experimental.Accessors;
 public class PetDTO {
 
     private String name;
-//    private String type;
-//    private String owner;
+    private String type;
+    private String owner;
 }

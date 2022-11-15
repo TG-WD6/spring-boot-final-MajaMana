@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.CustomerDTO;
 import com.example.demo.dto.PetDTO;
 import com.example.demo.model.Pet;
 import com.example.demo.service.CustomerService;
@@ -52,4 +53,31 @@ public class DemoController {
         return petService.removePet(id);
     }
 
+//    @GetMapping("/owners")
+//    public List<CustomerDTO> getCustomers(@RequestParam(required = false) String name) {
+//        if (name != null) {
+//            return customerService.getCustomersByName(name);
+//        }
+//        return customerService.getAllCustomers();
+//    }
+//
+//    @PostMapping("/owners/new")
+//    public ResponseEntity<Void> createCustomer(@RequestBody CustomerDTO customerDTO) {
+//        return customerService.createCustomer(customerDTO);
+//    }
+//
+//    @GetMapping("/owners/{id}")
+//    public ResponseEntity<CustomerDTO> getCustomer(@PathVariable Long id) {
+//        return customerService.getCustomer(id);
+//    }
+//
+//    @PutMapping("/owners/{id}")
+//    public ResponseEntity<Void> updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
+//        return customerService.updateCustomer(id, customerDTO);
+//    }
+//
+//    @DeleteMapping("/owners/{id}")
+//    public ResponseEntity<Void> removeCustomer(@PathVariable Long id) {
+//        return customerService.removeCustomer(id);
+//    }
 }

@@ -8,6 +8,7 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "customers")
@@ -21,14 +22,15 @@ public class Customer {
     @GeneratedValue
     private long customer_id;
     private String name;
-//    private String username;
-//    private String password;
+    private String username;
+    private String password;
 
     @OneToMany(mappedBy="owner", fetch = FetchType.EAGER)
     private List<Pet> petList;
 
-//    @Override
-//    public String toString() {
-//        return getName();
-//    }
+    @Override
+    public String toString() {
+        return "The owner is " + getName() + " and their pets are " + getPetList().stream().map(Pet::getName)
+                .collect(Collectors.joining(", "));
+    }
 }

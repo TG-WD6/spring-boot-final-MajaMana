@@ -6,9 +6,9 @@ import com.example.demo.model.Pet;
 public class PetMapper {
     public static PetDTO toPetDTO(Pet pet) {
         return new PetDTO()
-                .setName(pet.getName());
-//                .setType(pet.getType());
-//                .setOwner(pet.getOwner().getName());
+                .setName(pet.getName())
+//                .setType(pet.getType())
+                .setOwner(pet.getOwner().getName());
     }
 
     public static Pet toPet(PetDTO petDTO) {

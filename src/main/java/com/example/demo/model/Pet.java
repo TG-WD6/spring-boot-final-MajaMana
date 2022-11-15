@@ -3,7 +3,6 @@ package com.example.demo.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -22,7 +21,8 @@ public class Pet {
     private Long pet_id;
     private String name;
 
-
+//    @ManyToOne
+//    @JoinColumn(name="type_id", nullable = false)
 //    private String type;
 
     @ManyToOne
@@ -31,6 +31,6 @@ public class Pet {
 
     @Override
     public String toString() {
-        return getName() + owner.getName();
+        return "The pet is " + getName() + " and the owner is " + owner.getName();
     }
 }
