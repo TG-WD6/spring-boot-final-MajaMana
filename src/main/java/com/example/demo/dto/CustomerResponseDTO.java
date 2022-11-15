@@ -1,9 +1,9 @@
 package com.example.demo.dto;
 
-
-import com.example.demo.model.Customer;
-import com.example.demo.model.PetType;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 @Getter
@@ -11,9 +11,9 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @Accessors(chain = true)
 @ToString
-public class PetDTO {
+public class CustomerResponseDTO {
 
+    private Long id;
     private String name;
-    private String type;
 
 }

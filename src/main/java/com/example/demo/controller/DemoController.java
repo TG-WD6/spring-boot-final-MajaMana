@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.dto.CustomerDTO;
 import com.example.demo.dto.PetDTO;
 import com.example.demo.model.Pet;
+import com.example.demo.request.PetRequest;
+import com.example.demo.response.PetResponse;
 import com.example.demo.service.CustomerService;
 import com.example.demo.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,7 @@ public class DemoController {
     }
 
     @GetMapping("/pets")
-    public List<PetDTO> getPets(@RequestParam(required = false) String name) {
+    public List<PetResponse> getPets(@RequestParam(required = false) String name) {
         if (name != null) {
             return petService.getPetsByName(name);
         }
@@ -34,18 +36,18 @@ public class DemoController {
     }
 
     @PostMapping("/pets/new")
-    public ResponseEntity<Void> createPet(@RequestBody PetDTO petDTO) {
-        return petService.createPet(petDTO);
+    public ResponseEntity<Void> createPet(@RequestBody PetRequest petRequest) {
+        return petService.createPet(petRequest);
     }
 
     @GetMapping("/pets/{id}")
-    public ResponseEntity<PetDTO> getPet(@PathVariable Long id) {
+    public ResponseEntity<PetResponse> getPet(@PathVariable Long id) {
         return petService.getPet(id);
     }
 
     @PutMapping("/pets/{id}")
-    public ResponseEntity<Void> updatePet(@PathVariable Long id, @RequestBody PetDTO petDTO) {
-        return petService.updatePet(id, petDTO);
+    public ResponseEntity<Void> updatePet(@PathVariable Long id, @RequestBody PetRequest petRequest) {
+        return petService.updatePet(id, petRequest);
     }
 
     @DeleteMapping("/pets/{id}")
@@ -53,13 +55,13 @@ public class DemoController {
         return petService.removePet(id);
     }
 
-//    @GetMapping("/owners")
-//    public List<CustomerDTO> getCustomers(@RequestParam(required = false) String name) {
-//        if (name != null) {
-//            return customerService.getCustomersByName(name);
-//        }
-//        return customerService.getAllCustomers();
-//    }
+    @GetMapping("/owners")
+    public List<CustomerDTO> getCustomers(@RequestParam(required = false) String name) {
+        if (name != null) {
+            return customerService.getCustomersByName(name);
+        }
+        return customerService.getAllCustomers();
+    }
 //
 //    @PostMapping("/owners/new")
 //    public ResponseEntity<Void> createCustomer(@RequestBody CustomerDTO customerDTO) {

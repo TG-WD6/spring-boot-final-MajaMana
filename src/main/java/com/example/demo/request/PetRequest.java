@@ -1,23 +1,21 @@
-package com.example.demo.dto;
+package com.example.demo.request;
 
-import com.example.demo.model.Pet;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
-import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
 @ToString
-public class CustomerDTO {
+public class PetRequest {
 
+//    private Long id;
     private String name;
-    private String username;
-//    private String password;
-    private List<PetResponseDTO> petList;
+    private String type;
+    private Long customer_id;
+
 }

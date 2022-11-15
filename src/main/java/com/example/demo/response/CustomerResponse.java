@@ -1,6 +1,6 @@
-package com.example.demo.dto;
+package com.example.demo.response;
 
-import com.example.demo.model.Pet;
+import com.example.demo.dto.PetDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,10 +14,9 @@ import java.util.List;
 @NoArgsConstructor
 @Accessors(chain = true)
 @ToString
-public class CustomerDTO {
+public class CustomerResponse {
 
     private String name;
-    private String username;
-//    private String password;
-    private List<PetResponseDTO> petList;
+    private List<PetDTO> pets;
+
 }

@@ -21,9 +21,9 @@ public class Pet {
     private Long pet_id;
     private String name;
 
-//    @ManyToOne
-//    @JoinColumn(name="type_id", nullable = false)
-//    private String type;
+    @ManyToOne
+    @JoinColumn(name="type_id", nullable = false)
+    private PetType type;
 
     @ManyToOne
     @JoinColumn(name="owner_id", nullable=false)

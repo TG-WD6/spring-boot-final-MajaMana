@@ -8,15 +8,13 @@ public class CustomerMapper {
     public static CustomerDTO toCustomerDTO(Customer customer) {
         return new CustomerDTO()
                 .setName(customer.getName())
-                .setPetList(customer.getPetList())
-                .setUsername(customer.getUsername())
-                .setPassword(customer.getPassword());
+                .setPetList(customer.getPetList().stream().map(PetMapper::toPetDTO).toList())
+                .setUsername(customer.getUsername());
     }
 
     public static Customer toCustomer(CustomerDTO customerDTO) {
         return new Customer()
                 .setName(customerDTO.getName())
-                .setUsername(customerDTO.getUsername())
-                .setPassword(customerDTO.getPassword());
+                .setUsername(customerDTO.getUsername());
     }
 }

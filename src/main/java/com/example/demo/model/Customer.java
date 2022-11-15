@@ -20,7 +20,7 @@ public class Customer {
 
     @Id
     @GeneratedValue
-    private long customer_id;
+    private Long customer_id;
     private String name;
     private String username;
     private String password;
@@ -30,7 +30,8 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "The owner is " + getName() + " and their pets are " + getPetList().stream().map(Pet::getName)
+        return "The owner is " + getName() + " and their pets are: " + getPetList().stream().map(pet ->
+                        pet.getName() + pet.getType())
                 .collect(Collectors.joining(", "));
     }
 }
